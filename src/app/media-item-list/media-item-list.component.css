@@ -28,6 +28,11 @@ section {
 section > media-item {
   margin: 10px;
 }
+
+.icon:hover {
+  cursor: pointer;
+}
+
 footer {
   text-align: right;
 }
