@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { MediaItemComponent } from './media-item/media-item.component';
 import { MediaItemListComponent } from './media-item-list/media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
-import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 import { lookupLists, lookupListToken } from './providers';
 import { HttpXhrBackend, HttpClientModule } from '@angular/common/http';
 import { MockXHRBackend } from './mock-xhr-backend';
+import { CategoryListComponent } from './category-list.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +19,9 @@ import { MockXHRBackend } from './mock-xhr-backend';
     MediaItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    MediaItemFormComponent,
+    CategoryListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, HttpClientModule, routing],
   providers: [
     { provide: lookupListToken, useValue: lookupLists },
     { provide: HttpXhrBackend, useClass: MockXHRBackend },

@@ -1,5 +1,15 @@
-<header>
-  {{ mediaItems | categoryList }}
+<header
+  [ngClass]="{
+    'medium-movies': medium === 'Movies',
+    'medium-series': medium === 'Series'
+  }"
+>
+  <h2>{{ medium }}</h2>
+  <app-category-list
+    *ngIf="mediaItems"
+    [categories]="mediaItems | categoryList"
+  >
+  </app-category-list>
 </header>
 <section>
   <app-media-item
